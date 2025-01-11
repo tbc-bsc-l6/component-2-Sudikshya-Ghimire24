@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 // Home Page (Accessible without login)
 Route::get('/', function () {
@@ -10,6 +11,11 @@ Route::get('/', function () {
 Route::get('/products', function () {
     return view('product');
 });
+
+
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
 
 // Dashboard Page (Requires login)
 Route::get('/dashboard', function () {

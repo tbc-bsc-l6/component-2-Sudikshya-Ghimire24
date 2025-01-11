@@ -25,6 +25,8 @@
                     <a href="#" class="text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
                     <a href="{{ route('login') }}" class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-600">Login</a>
                     <a href="{{ route('register') }}" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Register</a>
+                    <a href="{{ route('products.index') }}" class="text-gray-700">Products</a>
+
                 </div>
             </div>
         </div>

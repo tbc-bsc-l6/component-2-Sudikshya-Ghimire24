@@ -5,7 +5,7 @@
             <nav>
                 <ul class="flex space-x-6">
                     <li><a href="#" class="hover:text-pink-500">Home</a></li>
-                    <li><a href="#products" class="hover:text-pink-500">Products</a></li>
+                    <li><a href="{{ route('products.index') }}" class="text-gray-700">Products</a></li>                    </li>
                     <li><a href="{{url('aboutus')}}" class="hover:text-pink-500">About</a></li>
                     <li><a href="#contact" class="hover:text-pink-500">Contact</a></li>
                     <li><a href="{{ route('login') }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-indigo-700">Login</a></li>
@@ -15,3 +15,5 @@
             <a href="#" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Shop Now</a>
         </div>
     </header>
+<!-- 
+    <a href="#products" class="hover:text-pink-500">Products</a> -->
