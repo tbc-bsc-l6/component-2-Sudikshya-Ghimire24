@@ -32,88 +32,112 @@
         <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <!-- Product Card 1 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <img src="{{ asset('images/p1.png') }}" alt="Product 1" class="w-full">
+                <img src="{{ asset('images/p1.jpg') }}" alt="Product 1" class="w-full h-64 object-cover">
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Product Name 1</h4>
                     <p class="mt-2 text-gray-600">$29.99</p>
-                    <a href="#" class="block mt-4 bg-pink-500 text-white text-center py-2 rounded hover:bg-pink-600">Add to Cart</a>
+                    <div class="mt-4 flex justify-between">
+                        <a href="#" class="block bg-pink-500 text-white text-center py-2 px-4 rounded hover:bg-pink-600">Add to Cart</a>
+                        <a href="#" class="block bg-purple-500 text-white text-center py-2 px-4 rounded hover:bg-purple-600">Buy Now</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Product Card 2 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <img src="{{ asset('images/p1.png') }}" alt="Product 2" class="w-full">
+                <img src="{{ asset('images/p2.jpg') }}" alt="Product 2" class="w-full h-64 object-cover">
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Product Name 2</h4>
                     <p class="mt-2 text-gray-600">$39.99</p>
-                    <a href="#" class="block mt-4 bg-pink-500 text-white text-center py-2 rounded hover:bg-pink-600">Add to Cart</a>
+                    <div class="mt-4 flex justify-between">
+                        <a href="#" class="block bg-pink-500 text-white text-center py-2 px-4 rounded hover:bg-pink-600">Add to Cart</a>
+                        <a href="#" class="block bg-purple-500 text-white text-center py-2 px-4 rounded hover:bg-purple-600">Buy Now</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Product Card 3 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/300" alt="Product 3" class="w-full">
+                <img src="{{ asset('images/p3.jpg') }}" alt="Product 3" class="w-full h-64 object-cover">
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Product Name 3</h4>
                     <p class="mt-2 text-gray-600">$19.99</p>
-                    <a href="#" class="block mt-4 bg-pink-500 text-white text-center py-2 rounded hover:bg-pink-600">Add to Cart</a>
+                    <div class="mt-4 flex justify-between">
+                        <a href="#" class="block bg-pink-500 text-white text-center py-2 px-4 rounded hover:bg-pink-600">Add to Cart</a>
+                        <a href="#" class="block bg-purple-500 text-white text-center py-2 px-4 rounded hover:bg-purple-600">Buy Now</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Product Card 4 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/300" alt="Product 4" class="w-full">
+                <img src="{{ asset('images/p4.jpg') }}" alt="Product 4" class="w-full h-64 object-cover">
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Product Name 4</h4>
                     <p class="mt-2 text-gray-600">$49.99</p>
-                    <a href="#" class="block mt-4 bg-pink-500 text-white text-center py-2 rounded hover:bg-pink-600">Add to Cart</a>
+                    <div class="mt-4 flex justify-between">
+                        <a href="#" class="block bg-pink-500 text-white text-center py-2 px-4 rounded hover:bg-pink-600">Add to Cart</a>
+                        <a href="#" class="block bg-purple-500 text-white text-center py-2 px-4 rounded hover:bg-purple-600">Buy Now</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Product Card 5 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/300" alt="Product 5" class="w-full">
+                <img src="{{ asset('images/p5.jpg') }}" alt="Product 5" class="w-full h-64 object-cover">
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Product Name 5</h4>
                     <p class="mt-2 text-gray-600">$24.99</p>
-                    <a href="#" class="block mt-4 bg-pink-500 text-white text-center py-2 rounded hover:bg-pink-600">Add to Cart</a>
+                    <div class="mt-4 flex justify-between">
+                        <a href="#" class="block bg-pink-500 text-white text-center py-2 px-4 rounded hover:bg-pink-600">Add to Cart</a>
+                        <a href="#" class="block bg-purple-500 text-white text-center py-2 px-4 rounded hover:bg-purple-600">Buy Now</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Product Card 6 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/300" alt="Product 6" class="w-full">
+                <img src="{{ asset('images/p6.jpg') }}" alt="Product 6" class="w-full h-64 object-cover">
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Product Name 6</h4>
                     <p class="mt-2 text-gray-600">$34.99</p>
-                    <a href="#" class="block mt-4 bg-pink-500 text-white text-center py-2 rounded hover:bg-pink-600">Add to Cart</a>
+                    <div class="mt-4 flex justify-between">
+                        <a href="#" class="block bg-pink-500 text-white text-center py-2 px-4 rounded hover:bg-pink-600">Add to Cart</a>
+                        <a href="#" class="block bg-purple-500 text-white text-center py-2 px-4 rounded hover:bg-purple-600">Buy Now</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Product Card 7 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/300" alt="Product 7" class="w-full">
+                <img src="{{ asset('images/p7.jpg') }}" alt="Product 7" class="w-full h-64 object-cover">
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Product Name 7</h4>
                     <p class="mt-2 text-gray-600">$44.99</p>
-                    <a href="#" class="block mt-4 bg-pink-500 text-white text-center py-2 rounded hover:bg-pink-600">Add to Cart</a>
+                    <div class="mt-4 flex justify-between">
+                        <a href="#" class="block bg-pink-500 text-white text-center py-2 px-4 rounded hover:bg-pink-600">Add to Cart</a>
+                        <a href="#" class="block bg-purple-500 text-white text-center py-2 px-4 rounded hover:bg-purple-600">Buy Now</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Product Card 8 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/300" alt="Product 8" class="w-full">
+                <img src="{{ asset('images/p8.jpg') }}" alt="Product 8" class="w-full h-64 object-cover">
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Product Name 8</h4>
                     <p class="mt-2 text-gray-600">$54.99</p>
-                    <a href="#" class="block mt-4 bg-pink-500 text-white text-center py-2 rounded hover:bg-pink-600">Add to Cart</a>
+                    <div class="mt-4 flex justify-between">
+                        <a href="#" class="block bg-pink-500 text-white text-center py-2 px-4 rounded hover:bg-pink-600">Add to Cart</a>
+                        <a href="#" class="block bg-purple-500 text-white text-center py-2 px-4 rounded hover:bg-purple-600">Buy Now</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-    @include('footer')
+@include('footer')
 
 </body>
 </html>
