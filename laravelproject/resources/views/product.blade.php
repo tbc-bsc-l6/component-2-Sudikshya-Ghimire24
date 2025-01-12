@@ -11,7 +11,7 @@
 
 
 
-<!-- Product Search and Filters -->
+<!-- Product Search, Filters, and Sorting -->
 <section class="py-8">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Search Bar -->
@@ -21,82 +21,31 @@
                 Search
             </button>
         </div>
-        <!-- Search by Price -->
-<div class="relative">
-<button onclick="togglePriceSortOptions()" class="px-4 py-2 border rounded-md w-64 text-gray-500 flex items-center justify-between bg-white">
-    <span>Search by Price</span>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-    </svg>
-</button>
 
+        <!-- Sort and Categories -->
+        <div class="flex items-center space-x-4">
+            <!-- Sort by Price -->
+            <div class="relative w-48">
+                <select class="block w-full p-3 text-lg bg-white border rounded-lg shadow-md focus:outline-none">
+                    <option disabled selected>Sort by Price</option>
+                    <option value="high-to-low">High to Low</option>
+                    <option value="low-to-high">Low to High</option>
+                </select>
+            </div>
 
-    <!-- Price Sort Options -->
-    <div id="priceSortOptions" class="absolute right-0 mt-2 w-40 bg-white border rounded-md shadow-md hidden">
-        <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onclick="sortByPrice('low-high')">Low to High</button>
-        <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onclick="sortByPrice('high-low')">High to Low</button>
-    </div>
-</div>
-
-<!-- Categories -->
-<div class="relative mt-4">
-<button onclick="togglePriceSortOptions()" class="px-4 py-2 border rounded-md w-64 text-gray-500 flex items-center justify-between bg-white">
-    <span>Categories</span>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-    </svg>
-</button>
-
-    <!-- Category Options -->
-    <div id="categoryOptions" class="absolute right-0 mt-2 w-40 bg-white border rounded-md shadow-md hidden">
-        <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onclick="selectCategory('makeup')">Makeup</button>
-        <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onclick="selectCategory('skincare')">Skincare</button>
-        <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onclick="selectCategory('beauty')">Beauty Products</button>
-    </div>
-</div>
-
-<script>
-    // Toggle the visibility of the price sort options
-    function togglePriceSortOptions() {
-        const options = document.getElementById('priceSortOptions');
-        options.classList.toggle('hidden');
-    }
-
-    // Sort products by price
-    function sortByPrice(order) {
-        console.log('Sorting by price:', order);
-        // Close the dropdown after selecting a sort option
-        document.getElementById('priceSortOptions').classList.add('hidden');
-    }
-
-    // Toggle the visibility of the category options
-    function toggleCategoryOptions() {
-        const options = document.getElementById('categoryOptions');
-        options.classList.toggle('hidden');
-    }
-
-    // Handle category selection
-    function selectCategory(category) {
-        console.log('Selected category:', category);
-        // Close the dropdown after selecting a category
-        document.getElementById('categoryOptions').classList.add('hidden');
-    }
-</script>
-
-
-   </div>
+            <!-- Categories -->
+            <div class="relative w-48">
+                <select class="block w-full p-3 text-lg bg-white border rounded-lg shadow-md focus:outline-none">
+                    <option disabled selected>Categories</option>
+                    <option value="haircare">Haircare</option>
+                    <option value="makeup">Makeup</option>
+                    <option value="skincare">Skincare</option>
+                </select>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Search by Category Options (Hidden by default) -->
-    <div id="categoryOptions" class="absolute left-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
-        <input type="text" id="categorySearch" class="w-full py-2 px-4 text-gray-700 border-b border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Search categories..." oninput="filterCategories()">
-        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-pink-100">Skin Care</a>
-        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-pink-100">Hair Care</a>
-        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-pink-100">Makeup</a>
-        <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-pink-100">Fragrances</a>
-    </div>
-</div>
 
 
 <!-- Product Page -->

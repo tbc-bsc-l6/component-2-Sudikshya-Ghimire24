@@ -8,6 +8,6 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('product'); // This will return the product page view
+        return view('product'); // This refers to product.blade.php
     }
 }
