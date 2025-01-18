@@ -1,13 +1,15 @@
 <?php
 
+// app/Http/Controllers/ContactController.php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function showContactPage()
+    public function index()
     {
-        return view('contact');
+        return view('contact');  // Make sure 'contact.blade.php' exists in 'resources/views'
     }
 }

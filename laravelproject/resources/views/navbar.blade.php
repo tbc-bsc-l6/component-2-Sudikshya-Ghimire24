@@ -17,6 +17,9 @@
                 <!-- About Us link -->
                 <li><a href="{{ route('aboutus.index') }}" class="text-gray-700">About Us</a></li>
                 <a href="{{ route('contact') }}" class="text-gray-700">Contact Us</a>
+                <!-- About Us link -->
+                <li><a href="{{ route('aboutus.index') }}" class="text-gray-700">About Us</a></li>
+
                 <li><a href="{{ route('login') }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-indigo-700">Login</a></li>
                 <li><a href="{{ route('register') }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-indigo-700">Register</a></li>
             </ul>
@@ -24,5 +27,14 @@
 
         <!-- Shop Now Button -->
         <a href="#" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Shop Now</a>
-    </div>
+
+
+     
+      <!-- Cart -->
+      <div class="relative flex items-center">
+                    <img src="images/truck.svg" alt="Cart" class="w-12 h-12 rounded-full cursor-pointer">
+                    <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs px-2 rounded-full">0</span>
+                    <p class="mt-2 text-center">Cart</p>
+                </div>
+        </div>
 </header>

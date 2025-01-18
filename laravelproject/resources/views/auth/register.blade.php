@@ -9,22 +9,29 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
+        <div class="mt-4">
+    <label for="user_type" class="block text-sm font-medium text-gray-700">User Type</label>
+    <select id="user_type" name="user_type" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+    </select>
+</div>
+
+
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
-
-        <!-- Phone -->
-        <div class="mt-4">
+         <!-- Phone -->
+         <div class="mt-4">
             <x-input-label for="phone" :value="__('Phone')" />
             <x-text-input id="phone" class="block mt-1 w-full" type="phone" name="phone" :value="old('phone')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
-
-        <!-- Address -->
-        <div class="mt-4">
+         <!-- Address -->
+         <div class="mt-4">
             <x-input-label for="address" :value="__('Address')" />
             <x-text-input id="address" class="block mt-1 w-full" type="address" name="address" :value="old('address')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('address')" class="mt-2" />

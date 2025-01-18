@@ -42,12 +42,7 @@
                     </select>
                 </div>
 
-                <!-- Cart -->
-                <div class="relative flex items-center">
-                    <img src="images/truck.svg" alt="Cart" class="w-12 h-12 rounded-full cursor-pointer">
-                    <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs px-2 rounded-full">0</span>
-                    <p class="mt-2 text-center">Cart</p>
-                </div>
+               
             </div>
         </div>
     </section>
