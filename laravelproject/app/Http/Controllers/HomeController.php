@@ -24,6 +24,17 @@ class HomeController extends Controller
         Auth::logout();
         return redirect()->route('home'); // or redirect()->route('login') if you want to redirect to the login page
     }
+
+    public function product_details($id)
+    {
+        $data = Product::find($id);
+
+        return view('product_details',compact('data'));
+    }
     
+
+   // HomeController.php
+
+
 
 }
