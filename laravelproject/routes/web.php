@@ -20,8 +20,10 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');  /
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');  // Dashboard route
+        return view('home');  // Dashboard route
     })->name('dashboard');
+
+    Route::get('logout', [HomeController::class, 'logout'])->name('account.logout');
 
     // Profile routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -69,3 +71,7 @@ route::post('upload_product',[AdminController::class,'upload_product'])-> middle
 route::get('view_product',[AdminController::class,'view_product'])-> middleware(['auth','admin']);
 
 route::get('delete_product/{id}',[AdminController::class,'delete_product'])-> middleware(['auth','admin']);
+
+route::get('update_product/{id}',[AdminController::class,'update_product'])-> middleware(['auth','admin']);
+
+route::get('edit_product/{id}',[AdminController::class,'edit_product'])-> middleware(['auth','admin']);

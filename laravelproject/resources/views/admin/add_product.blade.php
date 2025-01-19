@@ -1,123 +1,149 @@
 <!DOCTYPE html>
-<html>
-  <head> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
     @include('admin.css')
-    <style type ="text/css">
-        .div_deg{
-
-            display: flex;
-            justify-content:center;
-            margin-top: 70px;
-            align-items:center;
-        }
-        
-        h1{
-            color:white;
+    <style>
+        body {
+            background-color: #2c3e50;
+            color: white;
+            font-family: Arial, sans-serif;
         }
 
-        label
-        {
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #34495e;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea,
+        select,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus,
+        input[type="file"]:focus {
+            outline: none;
+            border: 2px solid #1abc9c;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .btn {
             display: inline-block;
-            width:250px;
-            font-size: 20px!important;
-            color: white!important;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #1abc9c;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        input[type='text']
-        {
-            width:370px;
-            height:50px;
+        .btn:hover {
+            background-color: #16a085;
         }
-        textarea
-        {
-            width:450;
+
+        .alert {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 14px;
         }
-        .input_deg
-        {
-            padding:12px;
+
+        .alert-success {
+            background-color: #27ae60;
         }
-        </style>
+
+        .alert-danger {
+            background-color: #e74c3c;
+        }
+    </style>
 </head>
-  <body>
+<body>
     @include('admin.header')
+    @include('admin.sidebar')
 
-   
-   @include('admin.sidebar')
-    <!-- Sidebar Navigation end-->
-      <div class="page-content">
-        <div class="page-header">
-          <div class="container-fluid">
+    <div class="container">
+        <h1>Add Product</h1>
 
-          <h1>Add Product</h1>
-          <div class="div_deg">
-            <form action ="{{url('upload_product')}}"
-             method="Post" enctype="multipart/form-data">
-                @csrf
-                
-                
-                <div class="input_deg">
-                    <label>Product Title</label>
-                    <input type="text" name="title">
-                </div>
+        @if (session('message'))
+            <div class="alert alert-success">{{ session('message') }}</div>
+        @endif
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-                <div class="input_deg">
-                    <label>Description</label>
-                    <textarea name="description" required></textarea>
-                </div>
+        <form action="{{ url('upload_product') }}" method="POST" enctype="multipart/form-data">
+            @csrf
 
+            <label for="title">Product Title</label>
+            <input type="text" name="title" id="title" placeholder="Enter product title" required>
 
-                <div class="input_deg"></div>
-                    <label>Product Price</label>
-                    <input type="text" name="price">
-                    <div class="input_deg">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" placeholder="Enter product description" required></textarea>
 
-                    <div class="input_deg">
-                    <label>Product Quantity</label>
-                    <input type="text" name="quantity">
-                </div>
+            <label for="price">Product Price</label>
+            <input type="text" name="price" id="price" placeholder="Enter product price" required>
 
-                <div class="input_deg">
-                    <label>Product Category</label>
-                    <select name="category" required>
-                        <option>
-                            Select a Option
-                        </option>
+            <label for="quantity">Product Quantity</label>
+            <input type="number" name="quantity" id="quantity" placeholder="Enter product quantity" required>
 
+            <label for="category">Product Category</label>
+            <select name="category" id="category" required>
+                <option value="">Select an Option</option>
+                @foreach ($category as $item)
+                    <option value="{{ $item->category_name }}">{{ $item->category_name }}</option>
+                @endforeach
+            </select>
 
-                        @foreach($category as $item)
-                        <option value="{{$item->category_name}}">
-                            {{$item->category_name}}
-                        </option>
-                        @endforeach
+            <label for="image">Product Image</label>
+            <input type="file" name="image" id="image" required>
 
-
-                    </select>
-                    <div class="input_deg">
-                    <label>Product Image</label>
-                    <input type="file" name="image">
-                </div>
-
-
-                <div class="input_deg">
-                    
-                    <input class="btn btn-success" type="submit" value="Add Product">
-                </div>
-                </div>
-            </form>
-          </div>
-
-          
-      </div>
+            <button type="submit" class="btn">Add Product</button>
+        </form>
     </div>
-    <!-- JavaScript files-->
-    <script src="{{asset('/admincss/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('/admincss/vendor/popper.js/umd/popper.min.js')}}"> </script>
-    <script src="{{asset('/admincss/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('/admincss/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
-    <script src="{{asset('/admincss/vendor/chart.js/Chart.min.js')}}"></script>
-    <script src="{{asset('/admincss/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('/admincss/js/charts-home.js')}}"></script>
-    <script src="{{asset('/admincss/js/front.js')}}"></script>
-  </body>
+
+    @include('admin.js')
+</body>
 </html>
