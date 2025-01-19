@@ -40,6 +40,12 @@
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
+
+            <form action="{{url('product_search')}}" method="get">
+                @csrf
+                <input type="search" name="search">
+                <input type ="submit" class="btn btn-secondary" value="Search">
+            </form>
                 <div class="div_deg">
                     <table class="table_deg">
                         <tr>

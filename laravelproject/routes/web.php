@@ -75,3 +75,5 @@ route::get('delete_product/{id}',[AdminController::class,'delete_product'])-> mi
 route::get('update_product/{id}',[AdminController::class,'update_product'])-> middleware(['auth','admin']);
 
 route::get('edit_product/{id}',[AdminController::class,'edit_product'])-> middleware(['auth','admin']);
+
+route::get('product_search',[AdminController::class,'product_search'])-> middleware(['auth','admin']);

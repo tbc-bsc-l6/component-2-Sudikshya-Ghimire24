@@ -152,5 +152,23 @@ class AdminController extends Controller
 
     return redirect('/view_product')->with('message', 'Product updated successfully!');
 }
+public function product_search(Request $request)
+{
+    $search = $request->search;
+    
+    // Check if the search input is not empty
+    if (!empty($search)) {
+        // Use 'LIKE' operator to match search term (case-insensitive)
+        // Search both the title and the category
+        $showproduct = Product::where('title', 'LIKE', '%' . $search . '%')
+                              ->orWhere('category', 'LIKE', '%' . $search . '%')
+                              ->paginate(15);
+    } else {
+        // If no search term, return all products
+        $showproduct = Product::paginate(15);
+    }
+
+    return view('admin.view_product', compact('showproduct'));
+}
 
 }
