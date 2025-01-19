@@ -3,19 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+
+
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function index()
-{
-    
-    return view('home'); // The view for the regular user dashboard
-}
+    {
+        $products = Product::all();
+       
+        return view('home',compact('products'));
+    }
 
-public function logout(){
-    Auth::logout();
-    return view('home');
-}
+    
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home'); // or redirect()->route('login') if you want to redirect to the login page
+    }
+    
 
 }

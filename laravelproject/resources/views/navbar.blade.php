@@ -13,16 +13,15 @@
                 <!-- Home link -->
                 <li><a href="{{ url('/') }}" class="hover:text-pink-500">Home</a></li>
                 <!-- Products link -->
-                <li><a href="{{ route('products.index') }}" class="text-gray-700">Products</a></li>
+                <li><a href="{{ route('product') }}" class="text-gray-700">Products</a></li>
                 <!-- About Us link -->
                 <li><a href="{{ route('aboutus.index') }}" class="text-gray-700">About Us</a></li>
                 <a href="{{ route('contact') }}" class="text-gray-700">Contact Us</a>
-                <!-- About Us link -->
-                <li><a href="{{ route('aboutus.index') }}" class="text-gray-700">About Us</a></li>
+                
 
                 @if (Auth::check())
-                <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">View Cart</a>
-                <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">View Order</a>
+                <!-- <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">View Cart</a>
+                <a href="#" class="text-gray-600 hover:text-blue-500 font-medium">View Order</a> -->
                 <li><a href="{{ route('account.logout')}}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-indigo-700">Logout</a></li>
                 @else
                 <li><a href="{{ route('login') }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-indigo-700">Login</a></li>

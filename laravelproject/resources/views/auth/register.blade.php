@@ -9,14 +9,7 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
-        <div class="mt-4">
-    <label for="user_type" class="block text-sm font-medium text-gray-700">User Type</label>
-    <select id="user_type" name="user_type" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-    </select>
-</div>
-
+       
 
         <!-- Email Address -->
         <div class="mt-4">
