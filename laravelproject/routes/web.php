@@ -82,3 +82,5 @@ Route::get('update_product/{id}',[AdminController::class,'update_product'])-> mi
 Route::get('edit_product/{id}',[AdminController::class,'edit_product'])-> middleware(['auth','admin']);
 Route::get('product_search',[AdminController::class,'product_search'])-> middleware(['auth','admin']);
 Route::get('product_details/{id}',[HomeController::class,'product_details']);
+Route::get('add_cart/{id}',[HomeController::class,'add_cart'])->middleware(['auth','verified']);
+Route::get('mycart',[HomeController::class,'mycart'])->middleware(['auth','verified']);

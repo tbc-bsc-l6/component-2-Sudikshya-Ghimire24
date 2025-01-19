@@ -5,11 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    
+    <style>
+    /* Container for the buttons */
+    .action-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    /* Button Styling */
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        text-decoration: none;
+        border-radius: 8px;
+        display: inline-block;
+        transition: background-color 0.3s, transform 0.3s ease;
+    }
+
+    /* Details button (red) */
+    .btn-danger {
+        background-color: #007bff;
+        color: white;
+        flex: 1;
+        text-align: center;
+    }
+
+    .btn-danger:hover {
+        background-color: #d50000;
+        transform: scale(1.05);
+    }
+
+    /* Add to Cart button (blue) */
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        flex: 1;
+        text-align: center;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    /* Make the buttons more attractive */
+    .btn:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    
+</style>
 </head>
 <body class="bg-gradient-to-br from-pink-50 to-pink-100 text-gray-800">
+@if(session('message'))
+    <div class="bg-blue-500 text-white text-center py-2 rounded-lg mt-4">
+        {{ session('message') }}
+    </div>
+@endif
+
     <!-- Include Navbar -->
+     
     @include('navbar')
 
+    
+
+   
+     
     <!-- Product Search, Filters, and Sorting -->
     <section class="py-8">
         <div class="container mx-auto flex justify-between items-center">
@@ -57,9 +122,10 @@
         <a class="btn btn-danger" href="{{ url('product_details', $product->id) }}">
             Details
         </a>
-        <a class="btn btn-primary" href="">Add to Cart</a> 
+        <a class="btn btn-primary" href="{{url('add_cart',$product->id)}}">Add to Cart</a> 
     </div>
         </div>
+        
         </div>
         @endforeach
     </div>

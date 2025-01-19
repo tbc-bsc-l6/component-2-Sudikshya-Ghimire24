@@ -13,12 +13,20 @@ return new class extends Migration
 {
     Schema::create('orders', function (Blueprint $table) {
         $table->id(); // Auto-incrementing ID for the order
-        $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Foreign key to the users table
-        $table->decimal('total_price', 10, 2); // Store the total price of the order
-        $table->string('billing_name'); // Billing name
-        $table->string('billing_address'); // Billing address
-        $table->string('payment_info'); // Payment method or details
-        $table->string('status')->default('pending'); // Order status (pending, completed, etc.)
+        $table->string('name')->nullable();
+        $table->string('rec_address')->nullable();
+
+       
+        $table->string('phone')->nullable();;
+        $table->string('status')->default('in progress'); 
+        $table->unsignedBigInteger('user_id')->nullable(); 
+        $table->unsignedBigInteger('product_id')->nullable();
+
+        $table->foreign('product_id')->reference('id')
+        ->on('products')->onUpdate('cascade');
+
+        $table->foreign('user_id')->reference('id')
+        ->on('users')->onDelete('cascade');
         $table->timestamps(); // Timestamps for created_at and updated_at
     });
 }

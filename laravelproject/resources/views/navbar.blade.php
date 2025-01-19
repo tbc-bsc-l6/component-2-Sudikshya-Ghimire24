@@ -33,9 +33,10 @@
        
       <!-- Cart -->
       <div class="relative flex items-center">
-    <a href="{{ url('my_cart') }}">
+    <a href="{{ url('mycart') }}">
         <img src="images/truck.svg" alt="Cart" class="w-12 h-12 rounded-full cursor-pointer">
-        <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs px-2 rounded-full">0</span>
+        <div class="absolute top-0 right-0 bg-red-500"></div>
+
         <p class="mt-2 text-center">Cart</p>
     </a>
 </div>
