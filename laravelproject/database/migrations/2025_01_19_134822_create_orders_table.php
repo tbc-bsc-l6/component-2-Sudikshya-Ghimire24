@@ -15,21 +15,22 @@ return new class extends Migration
         $table->id(); // Auto-incrementing ID for the order
         $table->string('name')->nullable();
         $table->string('rec_address')->nullable();
-
-       
-        $table->string('phone')->nullable();;
+        $table->string('phone')->nullable();
         $table->string('status')->default('in progress'); 
         $table->unsignedBigInteger('user_id')->nullable(); 
         $table->unsignedBigInteger('product_id')->nullable();
 
-        $table->foreign('product_id')->reference('id')
-        ->on('products')->onUpdate('cascade');
+        // Define foreign keys correctly
+        $table->foreign('product_id')->references('id')
+              ->on('products')->onUpdate('cascade');
 
-        $table->foreign('user_id')->reference('id')
-        ->on('users')->onDelete('cascade');
+        $table->foreign('user_id')->references('id')
+              ->on('users')->onDelete('cascade');
+              
         $table->timestamps(); // Timestamps for created_at and updated_at
     });
 }
+
 
 
     /**
