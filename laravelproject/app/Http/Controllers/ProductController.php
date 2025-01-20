@@ -13,16 +13,17 @@ class ProductController extends Controller
     public function index()
     {
         // Get all products
-        $products = Product::all();
-
-        $user= Auth::user();
-        $userid = $user->id;
-        $count = Cart::where('user_id', $userid);
-
-
-        // Return the view or data
-        return view('product', compact('products'));  // Adjust as needed
+        $items = Product::all();
+        
+        // Get the authenticated user
+        $user = Auth::user();
+        
+        // If the user is authenticated, proceed with logic
+        
+    
+        // Return the view with products (without cart count logic)
+        return view('product', compact('items'));
     }
-
+    
     
 }

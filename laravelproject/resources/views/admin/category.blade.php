@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head> 
@@ -8,18 +7,18 @@
       input[type="text"] {
         width: 400px;
         height: 50px;
-        border: 2px solid #4CAF50;
+        border: 2px solid #b0b0b0;
         border-radius: 8px;
         padding: 10px;
         font-size: 16px;
         transition: border-color 0.3s ease, background-color 0.3s ease;
-        background-color: #f9f9f9;
+        background-color: #f2f2f2;
       }
 
       input[type="text"]:focus {
-        border-color: #45a049;
+        border-color: #7a7a7a;
         outline: none;
-        background-color: #fff;
+        background-color: #ffffff;
       }
 
       /* Container Style */
@@ -30,7 +29,7 @@
         margin: 30px auto;
         flex-direction: column;
         width: 600px;
-        background: linear-gradient(45deg, #ff6f61, #6a1b9a);
+        background-color: #ffffff;
         border-radius: 12px;
         padding: 25px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -40,45 +39,44 @@
       .table_deg {
         text-align: center;
         margin: auto;
-        border: 2px solid #FF6347;
+        border: 2px solid #dcdcdc;
         margin-top: 50px;
         border-radius: 8px;
         border-collapse: collapse;
         width: 80%;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         background-color: #ffffff;
       }
 
       th {
-        background-color: #1e88e5;
+        background-color: #f0f0f0;
         padding: 15px;
         font-size: 20px;
         font-weight: bold;
-        color: white;
+        color: #333;
         text-transform: uppercase;
         letter-spacing: 1px;
       }
 
       td {
-        color: #333;
+        color: #555;
         padding: 12px;
-        border: 1px solid #FF6347;
+        border: 1px solid #dcdcdc;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
       td:hover {
-        background-color: #FF6347;
-        color: white;
+        background-color: #f7f7f7;
+        color: #333;
       }
 
       /* Heading Style */
       h1 {
-        color: white;
+        color: #333;
         text-align: center;
         margin-bottom: 20px;
         font-family: 'Arial', sans-serif;
         font-size: 32px;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       }
 
       /* Responsive Design */
@@ -107,33 +105,33 @@
       }
 
       .btn-primary {
-        background-color: #1e88e5;
+        background-color: #007bff;
         color: white;
         border: none;
       }
 
       .btn-primary:hover {
-        background-color: #0d6efd;
+        background-color: #0056b3;
       }
 
       .btn-success {
-        background-color: #4CAF50;
+        background-color: #28a745;
         color: white;
         border: none;
       }
 
       .btn-success:hover {
-        background-color: #45a049;
+        background-color: #218838;
       }
 
       .btn-danger {
-        background-color: #FF6347;
+        background-color: #dc3545;
         color: white;
         border: none;
       }
 
       .btn-danger:hover {
-        background-color: #f44336;
+        background-color: #c82333;
       }
 
     </style>

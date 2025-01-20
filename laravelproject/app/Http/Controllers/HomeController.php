@@ -28,16 +28,18 @@ class HomeController extends Controller
     }
 
     public function product_details($id)
-    {
+{
+    if (Auth::check()) {  // Check if user is authenticated
         $data = Product::find($id);
-        $user= Auth::user();
+        $user = Auth::user();  // Only access Auth::user() if authenticated
         $userid = $user->id;
         $count = Cart::where('user_id', $userid)->count();
-        
-
-
-        return view('product_details',compact('data','count'));
+        return view('product_details', compact('data', 'count'));
+    } else {
+        return redirect()->route('login');  // Redirect to login page if not authenticated
     }
+}
+
 
     public function add_cart($id)
 {
@@ -114,7 +116,7 @@ public  function mycart()
 
                 $data->delete();
             }
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Added to Cart Successfully.');
 
            
             
@@ -140,5 +142,23 @@ public  function mycart()
             return view('order', ['data' => $data]);
         }
         
+
+      // In your ProductController
+
+public function search_product(Request $request)
+{
+    $search = $request->search;
+    
+    if (!empty($search)) {
+        $items = Product::where('title', 'LIKE', '%' . $search . '%')
+                        ->orWhere('category', 'LIKE', '%' . $search . '%')
+                        ->paginate(15);
+    } else {
+        $items = Product::paginate(15);
+    }
+
+    return view('product', compact('items'));  // Changed showproduct to items
+}
+
         
 }
