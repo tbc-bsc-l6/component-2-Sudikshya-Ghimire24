@@ -102,21 +102,20 @@ class AdminController extends Controller
 
     public function delete_product($id)
     {
-        $delete = Product::find($id);
+        // Find the product by ID
+        $product = Product::find($id);
 
-        if (!$delete) {
-            return redirect()->back()->with('error', 'Product not found');
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found.');
         }
 
-        $imagePath = public_path('products/' . $delete->image);
+        // Delete related orders first (if any)
+        Order::where('product_id', $id)->delete();
 
-        if (file_exists($imagePath)) {
-            unlink($imagePath);
-        }
+        // Then delete the product
+        $product->delete();
 
-        $delete->delete();
-
-        return redirect()->back()->with('message', 'Product deleted successfully');
+        return redirect()->back()->with('message', 'Product and related orders deleted successfully.');
     }
     public function update_product($id)
     {

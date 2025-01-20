@@ -17,10 +17,14 @@ return new class extends Migration
     }
     
     public function down()
-    {
-        Schema::table('users', function (Blueprint $table) {
+{
+    Schema::table('users', function (Blueprint $table) {
+        // Check if column exists before dropping it
+        if (Schema::hasColumn('users', 'user_type')) {
             $table->dropColumn('user_type');
-        });
-    }
+        }
+    });
+}
+
     
 };

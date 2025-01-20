@@ -66,18 +66,20 @@
 @include('navbar')
 
 <!-- Hero Section -->
+<!-- Hero Section -->
 <section class="bg-pink-50">
     <div class="container mx-auto flex flex-col items-center text-center p-8 md:flex-row md:text-left md:space-x-8">
         <div class="md:w-1/2">
             <h2 class="text-4xl font-bold text-pink-500">Enhance Your Natural Beauty</h2>
             <p class="mt-4 text-gray-700">Discover a curated selection of high-quality beauty products crafted to make you feel confident and radiant.</p>
-            <a href="#products" class="mt-6 inline-block bg-pink-500 text-white px-6 py-3 rounded hover:bg-pink-600">Shop Collection</a>
+            <a href="{{ route('product') }}" class="mt-6 inline-block bg-pink-500 text-white px-6 py-3 rounded">Shop Collection</a>
         </div>
         <div class="mt-8 md:mt-0 md:w-1/2">
             <img src="{{ asset('images/image.jpg') }}" alt="Beauty Products" class="rounded-lg shadow-lg h-80">
         </div>
     </div>
 </section>
+
 
 <div class="container mx-auto text-center">
     <h1 class="text-4xl font-bold text-pink-500">Our Collection</h1>
