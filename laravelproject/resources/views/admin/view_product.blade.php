@@ -27,6 +27,15 @@
             text-align: center;
             color: white;
         }
+
+
+        input[type="search"] {
+    padding: 10px 15px; /* Increase padding for more height */
+    font-size: 16px;    /* Increase font size */
+    height: 40px;       /* Set a specific height */
+    border-radius: 5px; /* Optional: Round corners */
+}
+
     </style>
 </head>
 <body>

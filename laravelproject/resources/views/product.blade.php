@@ -76,21 +76,22 @@
 
 <!-- Product Grid -->
 <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-    @foreach($items as $item)
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
-        <img src="products/{{$item->image}}" alt="{{ $item->title }}" class="w-full h-64 object-cover">
-        <div class="p-4">
-            <h4 class="text-lg font-semibold">{{ $item->title }}</h4>
-            <p class="mt-2 text-pink-500 font-bold">${{ $item->price }}</p>
-            <div style="padding:15px">
-                <a class="btn btn-danger" href="{{ url('product_details', $item->id) }}">
-                    Details
-                </a>
-                <a class="btn btn-primary" href="{{ url('add_cart', $item->id) }}">Add to Cart</a> 
-            </div>
+@foreach($items as $item)
+<div class="bg-white shadow-md rounded-lg overflow-hidden">
+    <img src="products/{{$item->image}}" alt="{{ $item->title }}" class="w-full h-64 object-cover">
+    <div class="p-4">
+        <h4 class="text-lg font-semibold">{{ $item->title }}</h4>
+        <p class="mt-2 text-pink-500 font-bold">${{ $item->price }}</p>
+        <div style="padding:15px">
+            <a class="btn btn-danger" href="{{ url('product_details', $item->id) }}">
+                Details
+            </a>
+            <a class="btn btn-primary" href="{{ url('add_cart', $item->id) }}">Add to Cart</a> 
         </div>
     </div>
-    @endforeach
+</div>
+@endforeach
+
 </div>
 
 </body>

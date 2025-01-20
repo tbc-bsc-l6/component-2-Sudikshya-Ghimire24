@@ -1,100 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @include('admin.css')
     <style>
- /* Ensure no margin or padding on html and body */
- body, html {
+        /* Reset margins and paddings */
+        * {
             margin: 0;
             padding: 0;
-            height: 100%;
-            background-color: white;
-            overflow-x: hidden; /* Prevent horizontal overflow */
+            box-sizing: border-box;
         }
 
-        /* Ensure .page-content takes up all available space */
-        .page-content {
-            position: relative;
-            min-height: calc(100vh - 70px); /* Adjust based on the height of the header */
-            padding: 0;
-            margin: 0;
-            overflow: hidden;
-        }
-
-        /* Header without extra space */
-        .page-header {
-            padding: 20px 15px;
-            background: #2d3035;
-            color: #8a8d93;
-            margin-bottom: 0; /* Ensure no bottom margin to avoid extra space */
-        }
-
-        /* Adjust form container to avoid extra spacing */
-        .div_deg {
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px auto;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Input styling */
-        input[type='text'] {
-            width: 375px;
-            height: 60px;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .page-header {
+            background-color: #4e73df;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Button styling */
-        .btn-primary {
-            margin-left: 15px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-
-        /* Footer at the bottom */
-        footer {
-            background-color: #2d3035;
+        .page-header h1 {
             color: white;
-            text-align: center;
-            padding: 125px;
-            position: absolute;
-            bottom: 0;
-            width: 100%; /* Full width at the bottom */
+            font-size: 28px;
+            font-weight: 600;
         }
-    
+
+        .div_deg {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4e73df;
+            outline: none;
+            box-shadow: 0 0 8px rgba(78, 115, 223, 0.6);
+        }
+
+        .btn {
+            background-color: #4e73df;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2e59d9;
+        }
+
+      
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .div_deg {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .page-header h1 {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 
+<body>
+
     @include('admin.header')
     @include('admin.sidebar')
-    
+
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-                <h1 style="color: white;">Update Category</h1>
+                <h1>Update Category</h1>
                 <div class="div_deg">
                     <form action="{{ url('update_category', $data->id) }}" method="post">
                         @csrf
-                        <label for="category" style="color: white; font-size: 18px; margin-right: 15px;">
+                        <label for="category">
                             Category Name:
                         </label>
                         <input type="text" name="category" id="category" value="{{ $data->category_name }}" required>
                         <input class="btn btn-primary" type="submit" value="Update Category">
                     </form>
-                    @include('footer')
                 </div>
             </div>
-           
         </div>
-         
-        </div>
-        
-    
-    
+    </div>
+
+
 
     <!-- JavaScript files -->
     <script src="{{ asset('/admincss/vendor/jquery/jquery.min.js') }}"></script>
@@ -105,6 +132,7 @@
     <script src="{{ asset('/admincss/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('/admincss/js/charts-home.js') }}"></script>
     <script src="{{ asset('/admincss/js/front.js') }}"></script>
+
 </body>
 
 </html>

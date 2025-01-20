@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserTypeController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', [HomeController::class, 'index']);
 
 
 Route::get('/about-us', [AboutController::class, 'index'])->name('aboutus.index');
@@ -23,11 +24,6 @@ Route::get('/product', [ProductController::class, 'index'])->name('product');
 Route::get('/about', [AboutController::class, 'index'])->name('about');  // About page route
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');  // Contact page route
 
-//Route::middleware(['auth', 'verified'])->group(function () {
-  //  Route::get('/dashboard', function () {
-    //    return view('home');  // Dashboard route
-    //})->name('dashboard');
-//});
 
 
 

@@ -1,4 +1,20 @@
-<header class="header">   
+<header class="header">
+  <style>
+    .logout input[type="submit"] {
+  padding: 10px 20px; /* Increase padding */
+  font-size: 16px;    /* Increase font size */
+  border-radius: 5px; /* Round corners */
+  background-color: skyblue; /* Add a background color */
+  color: white;      /* Set text color */
+  cursor: pointer;   /* Add a pointer cursor on hover */
+  border: none;      /* Remove default border */
+}
+
+.logout input[type="submit"]:hover {
+  background-color: #d32f2f; /* Darker shade on hover */
+}
+
+  </style>   
       <nav class="navbar navbar-expand-lg">
         <div class="search-panel">
           <div class="search-inner d-flex align-items-center justify-content-center">

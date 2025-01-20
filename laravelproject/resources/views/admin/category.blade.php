@@ -65,6 +65,11 @@
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Bold Category Name */
+      td.category-name {
+        font-weight: bold;
+      }
+
       td:hover {
         background-color: #f7f7f7;
         color: #333;
@@ -133,7 +138,6 @@
       .btn-danger:hover {
         background-color: #c82333;
       }
-
     </style>
   </head>
   <body>
@@ -171,7 +175,7 @@
 
               @foreach($data as $Category)
               <tr>
-                <td>{{$Category->category_name}}</td>
+                <td class="category-name">{{$Category->category_name}}</td> <!-- Bold Category Name -->
                 <td>
                   <a class="btn btn-success" href="{{url('edit_category', $Category->id)}}">Edit</a>
                 </td>

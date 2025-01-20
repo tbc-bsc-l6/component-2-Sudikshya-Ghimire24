@@ -2,34 +2,52 @@
 <html>
   <head>
     <style>
-    body {
-    background-color: #f4f4f4; /* Light background color */
-    color: #333; /* Dark text for good contrast */
-    font-family: Arial, sans-serif;
+    html, body {
+    height: 100%;  /* Ensure the body and html take full height */
     margin: 0;
     padding: 0;
+}
+
+.page-content {
+    min-height: calc(100vh - 200px); /* Make sure content takes up full height minus footer */
+    padding-bottom: 60px;  /* Adds space for footer */
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    bottom: 0;
+}
+
+.container-fluid {
+    padding: 0 15px;
 }
 
 .container {
     max-width: 800px;
     margin: 50px auto;
-    background: #ffffff; /* White background for the container */
+    background: #ffffff;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for the container */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-h1{
+h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: white; /* Dark text for the header */
+    color: white;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #333; /* Dark text color for labels */
+    color: #333;
 }
 
 input[type="text"],
@@ -40,10 +58,10 @@ input[type="file"] {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid #ccc; /* Light border color */
+    border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    box-sizing: border-box; /* Ensures padding is included in the width */
+    box-sizing: border-box;
 }
 
 input[type="text"]:focus,
@@ -52,7 +70,7 @@ textarea:focus,
 select:focus,
 input[type="file"]:focus {
     outline: none;
-    border: 2px solid #3498db; /* Blue border on focus */
+    border: 2px solid #3498db;
 }
 
 textarea {
@@ -67,7 +85,7 @@ textarea {
     font-size: 16px;
     font-weight: bold;
     color: white;
-    background-color: #3498db; /* Blue background for the button */
+    background-color: #3498db;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -76,7 +94,7 @@ textarea {
 }
 
 .btn:hover {
-    background-color: #2980b9; /* Darker blue on hover */
+    background-color: #2980b9;
 }
 
 .alert {
@@ -88,34 +106,22 @@ textarea {
 }
 
 .alert-success {
-    background-color: #2ecc71; /* Green background for success */
+    background-color: #2ecc71;
 }
 
 .alert-danger {
-    background-color: #e74c3c; /* Red background for error */
+    background-color: #e74c3c;
 }
 
 img {
-    display: block; /* Make image a block-level element */
-    max-width: 100%; /* Ensure the image doesn't overflow */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 15px; /* Add space below the image */
-    border-radius: 4px; /* Rounded corners for the image */
-}
-.page-header {
-    margin-bottom: 30px;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 4px;
 }
 
-.page-header h2 {
-    font-size: 24px;
-    font-weight: 600;
-    color: white;
-    margin: 0;
-}
 
-.container-fluid {
-    padding: 0 15px;
-}
 </style> 
   
 
