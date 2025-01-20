@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
-
+use App\Models\Order;
 class AdminController extends Controller
 {
     public function view_category()
@@ -169,6 +169,35 @@ public function product_search(Request $request)
     }
 
     return view('admin.view_product', compact('showproduct'));
+}
+
+
+public function view_order()
+{
+
+    $data = Order::all();
+
+    return view('admin.order',compact('data'));
+}
+
+
+public function on_the_way($id)
+{
+    $data = Order::find($id);
+    $data->status ="On the way";
+    $data->save();
+    return redirect('/view_order');
+
+}
+
+
+public function delivered($id)
+{
+    $data = Order::find($id);
+    $data->status ="Delivered";
+    $data->save();
+    return redirect('/view_order');
+
 }
 
 }

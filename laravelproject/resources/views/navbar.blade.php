@@ -30,6 +30,14 @@
             </ul>
         </nav>
 
+        <div class="relative flex items-center">
+    <a href="{{ url('myorders') }}"class="px-4 py-2 bg-pink-500 text-white rounded hover:bg-indigo-700">
+        
+        
+       My Orders
+    </a>
+</div>
+
        
       <!-- Cart -->
       <div class="relative flex items-center">

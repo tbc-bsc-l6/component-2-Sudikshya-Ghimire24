@@ -19,6 +19,8 @@
                     Category
                 </a>
                 </li>
+
+                
                 
                 <li><a href="#exampledropdownDropdown" aria-expanded="false"
                  data-toggle="collapse"> <i class="icon-windows">
@@ -27,10 +29,17 @@
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{url('add_product')}}">Add Products</a></li>
                     <li><a href="{{url('view_product')}}">View Products</a></li>
+
                     
                   </ul>
                 </li>
                 
+
+                <li>
+                <a href="{{url('view_order')}}"> <i class="icon-grid"></i>
+                    Order
+                </a>
+                </li>
         </ul>
       </nav>
    

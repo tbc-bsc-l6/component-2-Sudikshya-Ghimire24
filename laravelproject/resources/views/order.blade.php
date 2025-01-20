@@ -169,6 +169,13 @@
             color: #e6007a;
         }
 
+        /* Cart Icon (No Count) */
+        .cart-icon {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .main-container {
@@ -183,95 +190,68 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <header>
-        <div class="container mx-auto">
-            <div class="flex items-center">
-                <img src="{{ asset('images/logo.png') }}" alt="Beauty Bliss Logo" class="h-10">
-                <h1 class="ml-4">Beauty Bliss</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ route('product') }}">Products</a></li>
-                    <li><a href="{{ route('aboutus.index') }}">About Us</a></li>
-                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
-                    @if (Auth::check())
-                        <li><a href="{{ route('account.logout') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Logout</a></li>
-                    @else
-                        <li><a href="{{ route('login') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Login</a></li>
-                        <li><a href="{{ route('register') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Register</a></li>
-                    @endif
-                </ul>
-            </nav>
+
+<!-- Navbar -->
+<header>
+    <div class="container mx-auto">
+        <div class="flex items-center">
+            <img src="{{ asset('images/logo.png') }}" alt="Beauty Bliss Logo" class="h-10">
+            <h1 class="ml-4">Beauty Bliss</h1>
         </div>
-    </header>
+        <nav>
+            <ul class="flex gap-6">
+                <li><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="{{ route('product') }}">Products</a></li>
+                <li><a href="{{ route('aboutus.index') }}">About Us</a></li>
+                <li><a href="{{ route('contact') }}">Contact Us</a></li>
 
-    <!-- Main Content -->
-    <div class="main-container container mx-auto">
-        <!-- Form Section -->
-        <div class="form-container">
-        <form action="{{ url('confirm_order') }}" method="POST">
-    @csrf
-
-                <div>
-                    <label>Receiver Name</label>
-                    <input type="text" name="name" value="{{Auth::user()->name}}">
+                <!-- Cart -->
+                <div class="cart-icon">
+                    <a href="{{ url('mycart') }}">
+                        <img src="images/truck.svg" alt="Cart" class="w-12 h-12 rounded-full cursor-pointer">
+                        <!-- No Cart Count -->
+                    </a>
+                    <p class="mt-2 text-center">Cart</p>
                 </div>
-                <div>
-    <label>Receiver Address</label>
-    <textarea name="address">{{ Auth::user()->address }}</textarea>
+
+                @if (Auth::check())
+                    <li><a href="{{ route('account.logout') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Logout</a></li>
+                @else
+                    <li><a href="{{ route('login') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Login</a></li>
+                    <li><a href="{{ route('register') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Register</a></li>
+                @endif
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Table Section -->
+<div class="table-container mx-auto mt-8 max-w-screen-lg">
+    <table class="w-full shadow-md rounded-lg overflow-hidden">
+        <thead>
+            <tr>
+                <th class="py-3 px-6 bg-blue-500 text-white">Product</th>
+                <th class="py-3 px-6 bg-blue-500 text-white">Price</th>
+                <th class="py-3 px-6 bg-blue-500 text-white">Delivery Status</th>
+                <th class="py-3 px-6 bg-blue-500 text-white">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($data as $order)
+                <tr class="border-b hover:bg-gray-100">
+                    <td class="py-4 px-6">{{$order->product->title}}</td>
+                    <td class="py-4 px-6">${{$order->product->price}}</td>
+                    <td class="py-4 px-6">{{$order->status}}</td>
+                    <td class="py-4 px-6">
+                        <img src="products/{{$order->product->image}}" alt="Product Image" class="rounded-lg w-24 h-24 object-cover">
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 
-                <div>
-                    <label>Receiver Phone</label>
-                    <input type="text" value="{{Auth::user()->name}}" name="phone">
-                </div>
-                <div>
-                    <input type="submit" value="Place Order">
-                </div>
-            </form>
-        </div>
+@include('footer')
 
-        <!-- Product Table Section -->
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product Title</th>
-                        <th>Price</th>
-                        <th>Image</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                        $totalPrice = 0;
-                    @endphp
-                   @foreach($cart as $cartitem)
-<tr>
-    <td>{{ $cartitem->product->title }}</td>
-    <td>${{ $cartitem->product->price }}</td>
-    <td><img src="/products/{{ $cartitem->product->image }}" alt="Product Image"></td>
-    <td>
-        <a onclick="return confirm('Are you sure to delete this ?')" class="btn btn-danger" href="{{ url('remove_cart', $cartitem->id) }}">Delete</a>
-    </td>
-</tr>
-@php
-    $totalPrice += $cartitem->product->price;
-@endphp
-@endforeach
-
-                </tbody>
-            </table>
-
-            <!-- Total Price Section -->
-            <div class="total-price">
-                Total Price: ${{ number_format($totalPrice, 2) }}
-            </div>
-        </div>
-    </div>
-
-    @include('footer')
 </body>
 </html>

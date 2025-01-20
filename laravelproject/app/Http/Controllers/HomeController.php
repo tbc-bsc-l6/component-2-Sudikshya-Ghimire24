@@ -120,4 +120,25 @@ public  function mycart()
             
 
         }
+
+
+
+        public function remove_cart ($id)
+        {
+            $data = Cart::find($id);
+            $data->delete();
+            return redirect()->back();
+
+
+        }
+
+
+        public function myorders()
+        {
+            $user = Auth::user()->id;
+            $data = Order::where('user_id', $user)->get();
+            return view('order', ['data' => $data]);
+        }
+        
+        
 }
