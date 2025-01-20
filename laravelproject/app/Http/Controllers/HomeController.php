@@ -106,9 +106,9 @@ class HomeController extends Controller
         if (!empty($search)) {
             $showproduct = Product::where('title', 'LIKE', '%' . $search . '%')
                                   ->orWhere('category', 'LIKE', '%' . $search . '%')
-                                  ->paginate(15);
+                                  ->paginate(30);
         } else {
-            $showproduct = Product::paginate(15);
+            $showproduct = Product::paginate(30);
         }
 
         return view('product', compact('showproduct'));
