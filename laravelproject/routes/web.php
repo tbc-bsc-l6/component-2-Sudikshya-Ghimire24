@@ -39,6 +39,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 
+
+
+
     Route::get('logout', [HomeController::class, 'logout'])->name('account.logout');
 
     // Profile routes
@@ -58,9 +61,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/images/upload', [ImageController::class, 'store'])->name('images.upload');
 
 require __DIR__.'/auth.php';
-
-Route::get('admin/dashboard',[UserTypeController::class,'index'])-> middleware(['auth','admin']);
-Route::get('/admin/dashboard', [UserTypeController::class, 'index'])->name('admin.dashboard');
+Route::get('admin/dashboard', [UserTypeController::class, 'index'])->middleware(['auth', 'admin'])->name('admin.dashboard');
 
 Route::get('view_category',[AdminController::class,'view_category'])-> middleware(['auth','admin']);
 

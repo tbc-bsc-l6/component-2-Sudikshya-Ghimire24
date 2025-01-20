@@ -24,6 +24,9 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
+   
+    
+
     /**
      * The application's route middleware groups.
      *
